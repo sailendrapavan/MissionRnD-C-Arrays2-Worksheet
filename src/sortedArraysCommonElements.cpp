@@ -35,23 +35,39 @@ int compare1(struct transaction *p, struct transaction *q)
 	{
 		return 1;
 	}
+	else
+	{
+		return 0;
+	}
 }
 struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen, struct transaction *B, int BLen)
 {
-	int a = ALen, b = BLen,i=0,j=0,k=0;
+	if ( A == NULL || B == NULL || ALen <= 0 || BLen <= 0)
+	{
+		return NULL;
+	}
+	int a = ALen, b = BLen,i=0,j=0,k=0,t;
 	struct transaction c[100];
 	while (i < a)
 	{
 		while (j < b)
-		{
-			if (compare1(&A[i], &B[j]))
+		{   
+			t = compare1(&A[i], &B[j]);
+			printf("%d", t);
+			if (t)
 			{
+				
 				c[k] = A[i];
 				k++;
 			}
 			j++;
 		}
 		i++;
+		j = 0;
+	}
+	if (k == 0)
+	{
+		return NULL;
 	}
 	return c;
 }

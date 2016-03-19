@@ -66,6 +66,10 @@ int compare(struct transaction *p, struct transaction *q)
 
 struct transaction * mergeSortedArrays(struct transaction *A, int ALen, struct transaction *B, int BLen) {
 	struct transaction c[100];
+	if (A == NULL || B == NULL || ALen <= 0 || BLen <= 0)
+	{
+		return NULL;
+	}
 	int i=0, j=0, u = ALen, z = BLen,k=0;
 	while (i < u&&j < z)
 	{
