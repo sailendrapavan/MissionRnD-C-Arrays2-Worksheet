@@ -17,13 +17,41 @@ NOTES:
 */
 
 #include <iostream>
-
+#include<string.h>
 struct transaction {
 	int amount;
 	char date[11];
 	char description[20];
 };
-
-struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen, struct transaction *B, int BLen) {
-	return NULL;
+int compare1(struct transaction *p, struct transaction *q)
+{
+	int a = (p[0].date[6] - '0') * 1000 + (p[0].date[7] - '0') * 100 + (p[0].date[8] - '0') * 10 + (p[0].date[9] - '0');
+	int b = (p[0].date[3] - '0') * 10 + (p[0].date[4] - '0');
+	int o = (p[0].date[0] - '0') * 10 + (p[0].date[1] - '0');
+	int d = (q[0].date[6] - '0') * 1000 + (q[0].date[7] - '0') * 100 + (q[0].date[8] - '0') * 10 + (q[0].date[9] - '0');
+	int e = (q[0].date[3] - '0') * 10 + (q[0].date[4] - '0');
+	int f = (q[0].date[0] - '0') * 10 + (q[0].date[1] - '0');
+	if (a == d&&b == e&&o == f && (p[0].amount == q[0].amount) && !strcmp(p[0].description, q[0].description))
+	{
+		return 1;
+	}
+}
+struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen, struct transaction *B, int BLen)
+{
+	int a = ALen, b = BLen,i=0,j=0,k=0;
+	struct transaction c[100];
+	while (i < a)
+	{
+		while (j < b)
+		{
+			if (compare1(&A[i], &B[j]))
+			{
+				c[k] = A[i];
+				k++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return c;
 }

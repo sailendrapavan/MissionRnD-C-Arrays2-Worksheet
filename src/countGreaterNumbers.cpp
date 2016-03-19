@@ -13,7 +13,7 @@ ERROR CASES: Return NULL for invalid inputs.
 
 NOTES:
 */
-
+#include<stdio.h>
 struct transaction {
 	int amount;
 	char date[11];
@@ -21,5 +21,47 @@ struct transaction {
 };
 
 int countGreaterNumbers(struct transaction *Arr, int len, char *date) {
-	return -1;
+	int i, p = 0;
+	int year = (date[6] - '0') * 1000 + (date[7] - '0') * 100 + (date[8] - '0') * 10 + (date[9] - '0');
+	int month = (date[3] - '0') * 10 + (date[4] - '0');
+	int dates = (date[0] - '0') * 10 + (date[1] - '0');
+	
+	
+		
+		for (i = 0; i < len; i++)
+		{
+			int a = (Arr[i].date[6] - '0') * 1000 + (Arr[i].date[7] - '0') * 100 + (Arr[i].date[8] - '0') * 10 + (Arr[i].date[9] - '0');
+			int b = (Arr[i].date[3] - '0') * 10 + (Arr[i].date[4] - '0');
+			int c = (Arr[i].date[0] - '0') * 10 + (Arr[i].date[1] - '0');
+			
+			if (a > year)
+			{
+				p++;
+				
+			}
+			else if (a == year)
+			{
+				if (b > month)
+				{
+					p++;
+				}
+				else if (b == month)
+				{
+					if (c > dates)
+					{
+						p++;
+					}
+				}
+				else
+				{
+
+				}
+			}
+			else
+			{
+
+			}
+		}
+
+	return p;
 }
