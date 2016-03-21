@@ -28,7 +28,7 @@ int main(){
 	/*struct transaction A[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
 	struct transaction B[3] = { { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" }, { 60, "22-04-2006", "Sixth" } };
 	//int A[3] = { 1, 2, 3 }, B[3] = { 2, 3, 6 };*/
-	struct transaction A[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
+	/*struct transaction A[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
 	struct transaction B[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
 	struct transaction *result = sortedArraysCommonElements(A, 3, A, 3);
 	for (int i = 0; i < 3; i++)
@@ -36,12 +36,13 @@ int main(){
 		printf("%d\n", result[i].amount);
 		printf("%s\n", result[i].date);
 		printf("%s\n", result[i].description);
-	}
+	}*/
 	//Test findSingleOccurenceNumber
 
 	//Test mergeSortedArray
 
 	//Test sortedArraysCommonElements
-
-	return 0;
+	int a[10] = { 2, 2, 2, 3, 6, 6, 6 };
+	int b=findSingleOccurenceNumber(a, 7);
+	printf("%d", b);
 }
